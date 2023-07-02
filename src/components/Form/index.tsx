@@ -5,7 +5,7 @@ import { useState } from "react";
 const Form = () => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
-  let content = "";
+  const [content, setContent] = useState("");
 
   const inputNameHandler = (value: any) => {
     setName(value);
@@ -17,12 +17,16 @@ const Form = () => {
     return value;
   };
 
-  const onSubmitHandler = () => {
-    content = `${name} + ${age} yo`;
+  const onSubmitHandler = (e: any) => {
+    e.preventDefault();
+    setContent(`${name}, ${age} years old`);
   };
 
   return (
-    <form onSubmit={onSubmitHandler} className="flex flex-col items-center">
+    <form
+      onSubmit={onSubmitHandler}
+      className="flex flex-col items-center mt-24"
+    >
       <Input
         type="text"
         placeholder="Enter your name"
@@ -34,7 +38,7 @@ const Form = () => {
         onBlur={inputAgeHandler}
       />
       <Button />
-      {content}
+      <div className="text-white text-2xl mt-20">{content}</div>
     </form>
   );
 };

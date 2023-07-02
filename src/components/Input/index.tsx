@@ -18,7 +18,7 @@ const Input: React.FC<{
       type={type}
       placeholder={placeholder}
       ref={inputValue}
-      className="bg-slate-900 text-white outline-none p-3 m-5 rounded-xl text-xl max-w-sm"
+      className="bg-slate-900 text-white outline-none p-3 m-5 rounded-xl text-xl max-w-sm w-full"
       onBlur={onBlurHandler}
     />
   );
